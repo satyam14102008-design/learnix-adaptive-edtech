@@ -7,8 +7,9 @@ import {
   TeacherDashboardData
 } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL 
-  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api` 
+const env = (import.meta as any).env;
+const API_BASE = env?.VITE_API_URL 
+  ? `${env.VITE_API_URL.replace(/\/$/, '')}/api` 
   : '/api';
 
 function getAuthHeader(): Record<string, string> {
